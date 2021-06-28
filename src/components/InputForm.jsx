@@ -1,16 +1,16 @@
-import React, { Component } from "react";
-import { Form } from "react-bootstrap";
-import uniqid from "uniqid";
-import { connect } from "react-redux";
-import { addTodo } from "../store/actions";
+import React, { Component } from 'react';
+import { Form } from 'react-bootstrap';
+import uniqid from 'uniqid';
+import { connect } from 'react-redux';
+import { addTodo } from '../store/actions';
 
 const mapDispatchToProps = (dispatch) => ({
-  addTodo: (todo) => dispatch(addTodo(todo))
+  addTodo: (todo) => dispatch(addTodo(todo)),
 });
 
 class InputForm extends Component {
   state = {
-    description: ""
+    description: '',
   };
 
   handleChange = (event) => {
@@ -23,12 +23,12 @@ class InputForm extends Component {
     const todo = {
       description: this.state.description,
       id: uniqid(),
-      completed: false
+      completed: false,
     };
 
     console.log(todo);
     this.props.addTodo(todo);
-    this.setState({ description: "" });
+    this.setState({ description: '' });
   };
 
   render() {
